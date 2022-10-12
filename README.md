@@ -31,6 +31,10 @@ This project utilizes two Jupyter Notebooks for all the code and data exploratio
 5. [Downsized png dataset](https://www.kaggle.com/datasets/jirkaborovec/stroke-blood-clot-origin-1k-scale-bg-crop)
 6. [Tiled dataset](https://www.kaggle.com/datasets/tr1gg3rtrash/mayo-clinic)
 
+## Replication Instructions
+
+An important note - the environment used for this project can be found in the requirements.txt file in this repository. All other resources used should be documented within the modeling notebooks.
+
 ### The Data
 
 The dataset provided by the Mayo Clinic contains over a thousand high-resolution whole-slide digital pathology images, and the whole dataset represents about 400 GB of data. Each slide depicts a blood clot from a patient that had experienced an acute ischemic stroke. The dataset contains roughly a 2:1 ratio of CE to LAA blood clots. Some patients have multiple representations of blood clots in the dataset, and there are 11 different clinics that have contributed to the image registry.
@@ -122,5 +126,6 @@ The results of my modeling and the Kaggle competition are almost certainly not s
 ├── images
 ├── README.md
 ├── STRIP.ipynb
-└── og_data_modeling.ipynb                          
+├── og_data_modeling.ipynb  
+└── requirements.txt                        
 ```
