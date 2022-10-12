@@ -113,3 +113,13 @@ The results of my modeling and the Kaggle competition are almost certainly not s
 4. Normalize how data is collected and collect data from many more sources. There were some problems with the data such as the inclusion of some blurry images, images with tons of whitespace (or blue or grey empty space). It would be more useful if empty space could be removed or not scanned in to avoid expensive computational methods for handling these images or preprocessing them. It would also be useful to have a system in which many hospitals and labs across the country could follow a standard procedure for extracting and imaging these blood clots and sending them to a collective repository of images.
 5. Data labeling - it could be extremely beneficial if technicians could label the components within the clot such as red and white blood cells, platelets, fibrin, etc. With these labels, feature extraction would be much easier and could allow for greater possibilities for differentiating between the two categories. 
 6. Establish trust with models - use methods such as LIME in order to extract features and recognize whether or not a model can be trusted. An easy way to pick up on an untrustworthy model, especially for this task, is if the model is placing importance on empty space or the background of an image.
+7. Stepping outside the computational box: Investigate prevantative healthcare measures. Are there techniques that could allow for identification and screening of potential clots before they happen?
+
+## Repository Structure
+
+```
+├── PDFs
+├── images
+├── README.md
+└── index.ipynb                          
+```
