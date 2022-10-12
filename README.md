@@ -121,5 +121,6 @@ The results of my modeling and the Kaggle competition are almost certainly not s
 ├── PDFs
 ├── images
 ├── README.md
-└── index.ipynb                          
+├── STRIP.ipynb
+└── og_data_modeling.ipynb                          
 ```
