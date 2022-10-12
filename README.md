@@ -1,4 +1,4 @@
-# capstone-STRIP-AI
+# Predicting Acute Ischemic Stroke Etiology from Whole Slide Digital Pathology Imaging of Clot Composition Retrieved via Mechanical Thrombectomy
 
 Created by Sam Oliver
 
@@ -19,7 +19,9 @@ This project utilizes two Jupyter Notebooks for all the code and data exploratio
 ## Links to Important Resources
 
 1. [Project Presentation]()
-2. [Modeling and data exploration carried out on Google Colab]()
-3. [Modeling and data exploration carried out by local machine]()
-
+2. [Modeling and data exploration carried out on Google Colab](https://github.com/samoliver3/capstone-STRIP-AI/blob/main/STRIP.ipynb)
+3. [Modeling and data exploration carried out by local machine](https://github.com/samoliver3/capstone-STRIP-AI/blob/main/og_data_modeling.ipynb)
+4. [Original dataset provided by the Mayo Clinic on Kaggle](https://www.kaggle.com/competitions/mayo-clinic-strip-ai/data)
+5. [Downsized png dataset](https://www.kaggle.com/datasets/jirkaborovec/stroke-blood-clot-origin-1k-scale-bg-crop)
+6. [Tiled dataset](https://www.kaggle.com/datasets/tr1gg3rtrash/mayo-clinic)
 ## Links to Important Resources
