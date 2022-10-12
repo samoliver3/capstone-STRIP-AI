@@ -55,3 +55,14 @@ The entire tiled dataset from this source contains around 120,000 images, and as
 
 ### Methods
 
+First, the data from the original dataset and the downsized png dataset were evaluated and previewed along with various metadata details such as number of clinics contributing images to the dataset, number of images per patient, etc. A simple convolutional neural network was created as a baseline model, and the model simply guessed that each image represented the CE category. This initial model was created with the downsized png dataset for the Colab notebook and with the original WSI dataset for the local notebook. The original basis for this architecture is adapted from Francois Chollet and his blog post titled ["Building powerful image classification models using very little data"](https://blog.keras.io/building-powerful-image-classification-models-using-very-little-data.html). 
+
+After this model, VGG-19 was utilized for the next model's architecture. The architecture of this model can be observed below.
+
+![VGG](./images/VGG-19_arch.png)
+
+I tweaked some parameters for each model, and I found that an Adam optimizer typically worked well with a moderate to low (1e-6) learning rate. I also used a binary crossentropy loss function for my models as this loss function was fairly compatible with how the Kaggle competition results were scored. This model did predict that some images belonged to the LAA category, but the false positive rate was much higher than the true positive rate, which ultimately indicated that this model performed worse than randomly guessing or simply guessing the CE or LAA category for each image. These kind of results can be depicted below with a confusion matrix.
+
+![vgg_res](./images/VGG_19_cm.png)
+
+After this model, I introduced Keras's ImageDataGenerator to permute the images in hopes that these permutations would allow the model to pick up on feature importances. I also allowed for higher resolution of the images (512x512 pixels) as opposed to a smaller resolution in the first VGG-19 model instance that used 256x256 image size to allow the model to read in better quality of images. However, this image quality still is not comparable to the extemely resolute images found in the original WSI imaga dataset, which has a typical image size of around 20k-50k pixels in both height and width parameters. I could not get around losing much of the resolution of these images due to resource constraint. This iteration of VGG-19 indicated that each image in the validation set was CE, which is what the baseline model indicated. 
