@@ -1,4 +1,4 @@
-# Predicting Acute Ischemic Stroke Etiology from Whole Slide Digital Pathology Imaging of Clot Composition Retrieved via Mechanical Thrombectomy
+# Predicting Acute Ischemic Stroke Etiology from Whole Slide Digital Pathology Imaging of Clots Retrieved via Mechanical Thrombectomy
 
 Created by Sam Oliver
 
@@ -16,7 +16,7 @@ To reiterate, the goal of this project is to create useful predictions as to whe
 
 ## The Stakeholder
 
-The stakeholder is the Mayo Clinic, which is offering cash rewards to the creators of the top five best-scoring entries according to a scoring algorithm. The Mayo Clinic is asking for entries to classify images into one of the two major AIS categories for each image in a test set. These two major categories include Cardioembolic (CE) strokes and Large Artery Atherosclerosis (LAA) strokes.
+The stakeholder is the Mayo Clinic, which is offering cash rewards to the creators of the top five best-scoring entries according to a scoring algorithm. The Mayo Clinic is asking for entries to classify images into one of the two major AIS categories for each image in a test set. These two major categories include Cardioembolic (CE) strokes and Large Artery Atherosclerosis (LAA) strokes. The Mayo Clinic would ultimately work with and provide other incentives (contracts, paid positions, etc) for the individuals or teams with the best scoring entries. 
 
 ## Navigation Instructions
 
@@ -33,7 +33,7 @@ This project utilizes two Jupyter Notebooks for all the code and data exploratio
 
 ### The Data
 
-The dataset provided by the Mayo Clinic contains over a thousand high-resolution whole-slide digital pathology images. Each slide depicts a blood clot from a patient that had experienced an acute ischemic stroke. The dataset contains roughly a 2:1 ratio of CE to LAA blood clots. Some patients have multiple representations of blood clots in the dataset, and there are 11 different clinics that have contributed to the image registry.
+The dataset provided by the Mayo Clinic contains over a thousand high-resolution whole-slide digital pathology images, and the whole dataset represents about 400 GB of data. Each slide depicts a blood clot from a patient that had experienced an acute ischemic stroke. The dataset contains roughly a 2:1 ratio of CE to LAA blood clots. Some patients have multiple representations of blood clots in the dataset, and there are 11 different clinics that have contributed to the image registry.
 
 ![metadata](./images/metadata.png)
 
@@ -102,3 +102,14 @@ This metric is useful for this project because it penalizes bad predictions and 
 ### Evaluating the success of baseline vs. best model
 
 In terms of binary cross entropy loss, my baseline model for my Google Colab notebook scored approximately 0.6625. My first Xception model (local notebook) had the lowest binary cross entropy loss score of 0.604. In comparison to the Kaggle competition, the sample submission (randomly guessing) scored 0.693, and the top score was 0.660. I can't gurantee that my losses are comparable to the Kaggle competition, especially because the formulas actually are slightly different, but I do wish I would have contributed an entry to this competition. My highest scoring model (and most of my models at that) score the images very conservatively with predictions around 50% likelihood. It's not that my models are any good, it's just that I'm not getting penalized terribly for bad predictions because my models simply aren't confident in their predictions. Some of the Kaggle users purport making their predictions more conservative by intentionally casting very high or very low percentage predictions to values closer to 0.5 so that they are not penalized by the scoring metric. Considering that the sample submission and the top submission purport such similar results, I am not so convinced that this competition resulted in a model that in itself will be able to complete this task, but hopefully the competition as a whole furthered or redirected solutions for this problem. 
+
+### Conclusions and further recommendations
+
+The results of my modeling and the Kaggle competition are almost certainly not satisfactory for deployment to real patients. There is certainly still more work to be done to create a model that can carry out this task in an effective way and save lives. My recommendations for tackling this problem more effectively include:
+
+1. Utilize an abundance of computational resources. I'm talking super-computer level computational power. These images are huge. The whole dataset that the Mayo Clinic provided was about 400 GB and loading just a few of these into memory for most machines will crash them. There needs to be computational tools available in order to maintain high resolution of the images and feed in high-resolution images into deep learning technologies.
+2. Obtain biomarkers for patients. What other information about a patient could help inform a prediction about whether the stroke that occurred was one type or the other?
+3. Obtain other information on the blood clot. For example, a mass spectrometer could be used to obtain the protein content of an individual clot fragment. 
+4. Normalize how data is collected and collect data from many more sources. There were some problems with the data such as the inclusion of some blurry images, images with tons of whitespace (or blue or grey empty space). It would be more useful if empty space could be removed or not scanned in to avoid expensive computational methods for handling these images or preprocessing them. It would also be useful to have a system in which many hospitals and labs across the country could follow a standard procedure for extracting and imaging these blood clots and sending them to a collective repository of images.
+5. Data labeling - it could be extremely beneficial if technicians could label the components within the clot such as red and white blood cells, platelets, fibrin, etc. With these labels, feature extraction would be much easier and could allow for greater possibilities for differentiating between the two categories. 
+6. Establish trust with models - use methods such as LIME in order to extract features and recognize whether or not a model can be trusted. An easy way to pick up on an untrustworthy model, especially for this task, is if the model is placing importance on empty space or the background of an image.
