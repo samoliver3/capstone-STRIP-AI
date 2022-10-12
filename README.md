@@ -36,3 +36,7 @@ This project utilizes two Jupyter Notebooks for all the code and data exploratio
 The dataset provided by the Mayo Clinic contains over a thousand high-resolution whole-slide digital pathology images. Each slide depicts a blood clot from a patient that had experienced an acute ischemic stroke. The dataset contains roughly a 2:1 ratio of CE to LAA blood clots. Some patients have multiple representations of blood clots in the dataset, and there are 11 different clinics that have contributed to the image registry.
 
 ![metadata](./images/metadata.png)
+
+A preview of some of the images from each category (CE and LAA) can be seen below.
+
+![imgs](./images/CE_LAA.png)
