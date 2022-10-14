@@ -71,9 +71,7 @@ After this model, VGG-19 was utilized for the next model's architecture. The arc
 
 ![VGG](./images/VGG-19_arch.png)
 
-I tweaked some parameters for each model, and I found that an Adam optimizer typically worked well with a moderate to low (1e-6) learning rate. I also used a binary crossentropy loss function for my models as this loss function was fairly compatible with how the Kaggle competition results were scored. This model did predict that some images belonged to the LAA category, but the false positive rate was much higher than the true positive rate, which ultimately indicated that this model performed worse than randomly guessing or simply guessing the CE or LAA category for each image. These kind of results can be depicted below with a confusion matrix.
-
-![vgg_res](./images/VGG_19_cm.png)
+I tweaked some parameters for each model, and I found that an Adam optimizer typically worked well with a moderate to low (1e-6) learning rate. I also used a binary crossentropy loss function for my models as this loss function was fairly compatible with how the Kaggle competition results were scored. This model did predict that some images belonged to the LAA category, but it's false positive rate was high and resulted in worse predictive results that simply randomly guessing the CE or LAA category for each image.
 
 After this model, I introduced Keras's ImageDataGenerator to permute the images in hopes that these permutations would allow the model to pick up on feature importances. I also allowed for higher resolution of the images (512x512 pixels) as opposed to a smaller resolution in the first VGG-19 model instance that used 256x256 image size to allow the model to read in better quality of images. However, this image quality still is not comparable to the extemely resolute images found in the original WSI imaga dataset, which has a typical image size of around 20k-50k pixels in both height and width parameters. I could not get around losing much of the resolution of these images due to resource constraint. This iteration of VGG-19 indicated that each image in the validation set was CE, which is what the baseline model indicated. 
 
@@ -83,9 +81,7 @@ I saw on Kaggle that some users were supposedly having some small successes with
 
 ![effnet](./images/effnet.png)
 
-As seen here, the EfficientNet architecture uniformly scales the dimensions of the images fed in using a fixed ratio. To avoid memory overflow, I used EfficientNetB0, which reads in images as 224x224 size. It would have been nice to read in images at higher resolution, but I kept having issues with OOM, so I stuck with version B0. This model did predict some validations as belonging to the LAA category, but ultimately, it still showed worse results than simply guessing one or the other category or randomly guessing. The confusion matrix for this model shows these results.
-
-![effcm](./images/effnet_cm.png)
+As seen here, the EfficientNet architecture uniformly scales the dimensions of the images fed in using a fixed ratio. To avoid memory overflow, I used EfficientNetB0, which reads in images as 224x224 size. It would have been nice to read in images at higher resolution, but I kept having issues with OOM, so I stuck with version B0. This model did predict some validations as belonging to the LAA category, but ultimately, it still showed worse results than simply guessing one or the other category or randomly guessing.
 
 I also tried to use this same model architecture on the Whole Slide images in my local modeling notebook, but I did not have success with this model either.
 
