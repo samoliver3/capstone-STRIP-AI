@@ -111,7 +111,13 @@ In terms of binary cross entropy loss, my baseline model for my Google Colab not
 
 ### Conclusions and further recommendations
 
-The results of my modeling and the Kaggle competition are almost certainly not satisfactory for deployment to real patients. There is certainly still more work to be done to create a model that can carry out this task in an effective way and save lives. My recommendations for tackling this problem more effectively include:
+The results of my modeling and the Kaggle competition are almost certainly not satisfactory for deployment to real patients. There is certainly still more work to be done to create a model that can carry out this task in an effective way and save lives. My *actionable* recommendations for this project include the following:
+
+![diagnostic_tool](./images/diag_tool.png)
+
+### Further recommendations:
+
+My further recommendations for tackling this problem more effectively include:
 
 1. Utilize an abundance of computational resources. I'm talking super-computer level computational power. These images are huge. The whole dataset that the Mayo Clinic provided was about 400 GB and loading just a few of these into memory for most machines will crash them. There needs to be computational tools available in order to maintain high resolution of the images and feed in high-resolution images into deep learning technologies.
 2. Obtain biomarkers for patients. What other information about a patient could help inform a prediction about whether the stroke that occurred was one type or the other?
