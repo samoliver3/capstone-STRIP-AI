@@ -97,11 +97,11 @@ The Kaggle competition scored submissions using a weighted multi-class logarithm
 
 ![scoring](./images/eval_form.png)
 
-This formula has the effect of placing equal importance on each category for the final score. This function is quite similar to the binary cross entropy loss function. I used the binary cross entropy loss for evaluating my models along with rmse, mae, and accuracy. But the most important metric for me to keep track of was binary cross entropy. This formula is depicted as follows:
+This formula has the effect of placing equal importance on each category for the final score. This function is quite similar to the binary cross entropy loss function. I used the binary cross entropy loss for evaluating my models along with rmse, mae, and accuracy. I used all these metrics to help understand what my model was doing, but the most important metric for me to keep track of was binary cross entropy. I used this formula because it can be substituted for the Kaggle competition formula as it essentially carries out the same calculation, and binary cross entropy is easily built in as a loss formula for the kinds of models I created through Tensorflow and Keras. The formula for binary cross entropy is depicted as follows:
 
 ![bin_x](./images/bin_x.png)
 
-This metric is useful for this project because it penalizes bad predictions and rewards good predictions- intuitive, right? It's not the most intuitive metric, and I often refer back to [this article](https://towardsdatascience.com/understanding-binary-cross-entropy-log-loss-a-visual-explanation-a3ac6025181a) to make sure that I am interpreting and using it correctly. Essentially, if you make a prediction with high certainty that an image belongs to one category, but it belongs to another (or vice-versa), then you are penalized heavily. The following image is a pretty good visualization of how predictions are penalized and rewarded. 
+This metric is useful for this project because it penalizes bad predictions and rewards good predictions- intuitive, right? It's actually not the *most* intuitive metric, and I often refer back to [this article](https://towardsdatascience.com/understanding-binary-cross-entropy-log-loss-a-visual-explanation-a3ac6025181a) to make sure that I am interpreting and using it correctly. Essentially, if you make a prediction with high certainty that an image belongs to one category, but it belongs to another (or vice-versa), then you are penalized heavily. The following image is a pretty good visualization of how predictions are penalized and rewarded. 
 
 ![pen_reward](./images/competitionMetricExplanation.png)
 
