@@ -111,7 +111,7 @@ In terms of binary cross entropy loss, my baseline model for my Google Colab not
 
 ### Conclusions and further recommendations
 
-The results of my modeling and the Kaggle competition are almost certainly not satisfactory for deployment to real patients. There is certainly still more work to be done to create a model that can carry out this task in an effective way and save lives. My *actionable* recommendations for this project include the following:
+The results of my modeling and the Kaggle competition are almost certainly not satisfactory for deployment to real patients. There is certainly still more work to be done to create a model that can carry out this task in an effective way and save lives. My *actionable* recommendations for this project include creating a diagnostic model that is optimized to perform well with more data including more Whole Slide images as well as other types of data such as patient biomarkers. This tool can be summarized below:
 
 ![diagnostic_tool](./images/diag_tool.png)
 
